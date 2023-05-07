@@ -16,6 +16,16 @@ create_logs() {
     done
 }
 
+create_errors() {
+    error_number=$1
+    
+    for i in $(seq 1 $error_number); do
+        echo "error$i.txt" > error$i.txt
+        echo ${0##*/} >> error$i.txt
+        echo_date >> error$i.txt
+    done
+}
+
 
 display_help() {
     echo "Usage: $0 [option...] {--date|--logs [number]}"
@@ -45,6 +55,15 @@ while [[ $# -gt 0 ]]; do
                 shift 2
             else
                 create_logs 100
+                shift
+            fi
+        ;;
+        -e|--errors)
+            if [[ -n $2 && ! $2 == -* ]]; then
+                create_errors $2
+                shift 2
+            else
+                create_errors 100
                 shift
             fi
         ;;
