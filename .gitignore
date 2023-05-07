@@ -1,2 +1,5 @@
 # ignore all files containing log in the name
 *log*
+
+# ugnore all files containing error in the name
+*error*
