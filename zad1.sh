@@ -14,6 +14,16 @@ create_logs() {
     done
 }
 
+
+display_help() {
+    echo "Usage: $0 [option...] {--date|--logs [number]}"
+    echo "Options:"
+    echo "  --date      display current date"
+    echo "  --logs      create log files"
+    echo "  number      number of log files to create (default: 100)"
+    echo "  -h, --help  display this help and exit"
+}
+
 # script should echo current date if run with --date argument
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -30,6 +40,10 @@ while [[ $# -gt 0 ]]; do
                 create_logs 100
                 shift
             fi
+        ;;
+        -h|--help)
+            display_help
+            exit 0
         ;;
         *)
             echo "Unknown argument $key"
