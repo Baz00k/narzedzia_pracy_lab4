@@ -30,8 +30,10 @@ create_errors() {
 display_help() {
     echo "Usage: $0 [option...] {argument...}"
     echo "Options:"
+    echo "--init          initialize repository"
     echo "-d, --date      display current date"
     echo "-l, --logs      create logs with given number of files (default 100)"
+    echo "-e, --errors    create errors with given number of files (default 100)"
     echo "-h, --help      display help"
     echo "Example:"
     echo "$0 -d -l 10"
