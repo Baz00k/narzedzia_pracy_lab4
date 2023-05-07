@@ -28,11 +28,11 @@ display_help() {
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
-        --date)
+        -d|--date)
             echo_date
             shift
         ;;
-        --logs)
+        -l|--logs)
             if [[ -n $2 && ! $2 == -* ]]; then
                 create_logs $2
                 shift 2
