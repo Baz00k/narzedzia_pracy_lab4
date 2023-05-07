@@ -16,12 +16,13 @@ create_logs() {
 
 
 display_help() {
-    echo "Usage: $0 [option...] {--date|--logs [number]}"
+    echo "Usage: $0 [option...] {argument...}"
     echo "Options:"
-    echo "  --date      display current date"
-    echo "  --logs      create log files"
-    echo "  number      number of log files to create (default: 100)"
-    echo "  -h, --help  display this help and exit"
+    echo "-d, --date      display current date"
+    echo "-l, --logs      create logs with given number of files (default 100)"
+    echo "-h, --help      display help"
+    echo "Example:"
+    echo "$0 -d -l 10"
 }
 
 # script should echo current date if run with --date argument
