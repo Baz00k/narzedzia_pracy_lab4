@@ -41,7 +41,6 @@ init() {
     export PATH=$PATH:$(pwd)/narzedzia_pracy_lab4
 }
 
-# script should echo current date if run with --date argument
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
