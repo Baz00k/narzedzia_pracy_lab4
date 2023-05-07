@@ -1,5 +1,7 @@
 #!/bin/bash
 
+repo_url="https://github.com/Baz00k/narzedzia_pracy_lab4.git"
+
 echo_date() {
     echo $(date)
 }
@@ -24,6 +26,11 @@ display_help() {
     echo "  -h, --help  display this help and exit"
 }
 
+init() {
+    git clone $repo_url
+    export PATH=$PATH:$(pwd)/narzedzia_pracy_lab4
+}
+
 # script should echo current date if run with --date argument
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -40,6 +47,10 @@ while [[ $# -gt 0 ]]; do
                 create_logs 100
                 shift
             fi
+        ;;
+        --init)
+            init
+            shift
         ;;
         -h|--help)
             display_help
